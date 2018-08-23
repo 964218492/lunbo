@@ -3,7 +3,7 @@
     // 本函数每次调用只负责一个轮播图的功能
     // 也就是说只会产生一个轮播，这个函数的作用域只能分配给一个轮播图
     // 所以要在调用本函数的时候请务必将当前轮播图的标签传递过来
-    var slide = function (ele) {
+    var slide = function (ele,options) {
         // 转为jq标签对象
         var $ele = $(ele);
         // 默认的设置选项
@@ -13,6 +13,14 @@
             // 控制time的时间(轮播速度)
             speed: 2000
         }
+
+        // 对象合并
+        // para1:Boolean类型，是否深度合并，默认值是false(不支持该参数
+        // 为false)，若为true，且多个对象的某个同名属性也是对象，则该“
+        // 属性对象”的属性也将进行合并
+        // para2，para3...都是要合并的对象
+        $.extend(true,setting,options)
+
         // 规定好每张图片处于的位置和状态
         var states = [
             { ZIndex: 1, width: 120, height: 150, top: 69, left: 134, opac: 0.2 },
@@ -66,9 +74,9 @@
         })
     }
 
-    $.fn.ZYSlide = function(){
+    $.fn.ZYSlide = function(options){
         $(this).each(function(i,ele){
-            slide(ele)
+            slide(ele,options)
         })
     }
 })(jQuery)
