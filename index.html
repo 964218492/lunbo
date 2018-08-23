@@ -48,6 +48,19 @@
     jQuery('#two').ZYSlide({speed:1000}).css('backgroundColor','blue')
 
 
+    // 要确保当前的文件都已经在本地仓库中，即所有的文件都已经被 add过，并且也commit过
+
+    // 本地推送到远程仓库中
+
+    // 1.连接远程的仓库  git remote add origin ‘远程仓库地址’
+    // 2.将远程仓库中的文件先拉取到本地仓库  git pull --rebase origin 远程仓库的分支
+    // (第一次pull才这样编写)不是第一次pull，直接使用 git pull origin 远程仓库的分支
+    // 例 git pull origin master
+    // 3.将本地仓库推送到远程仓库中
+    // git push -u origin 远程仓库的分支名(第一次push才这样编写)
+    // 不是第一次push，直接使用：
+    // git push origin 远程仓库的分支名
+
 </script> 
 
 </html>
